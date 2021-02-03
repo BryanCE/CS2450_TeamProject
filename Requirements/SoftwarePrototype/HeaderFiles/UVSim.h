@@ -4,20 +4,16 @@
 #include "Memory.h"
 #include "Accumulator.h"
 #include <string>
+#include <sstream>
 class UVSim
 {
 public:
 	UVSim();
 	void StartProgram();
-protected:
-	int currentAdress = 0;
 
-	Memory mem;
-	Accumulator acmltr;
-	
-	
-	//Some generic functions to parse an integer from the string
-        //credit to stack overflow help
+//Some generic functions to parse an integer from the string
+//credit to stack overflow help
+//does handle negative numbers
 	template<typename T>
 	std::string ToString(const T& v)
 	{
@@ -35,11 +31,10 @@ protected:
 		return ret;
 	}
 
+protected:
+	int currentAdress = 0;
+	Memory mem;
+	Accumulator acmltr = Accumulator(&mem);
+
+
 };
-
-
-//#ifndef CONSUMER_H
-//#define CONSUMER_H
-//#include"prodcons.h"
-//void* consumer(void* pc);
-//#endif
