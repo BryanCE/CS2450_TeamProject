@@ -54,4 +54,7 @@ void UVSim::StartProgram()
 	cout << "Program loaded. . ." << endl;
 	//call the accumulator to run the user's program
 	acmltr.RunProgram();
+	cout << "Simpletron execution terminated" << endl;
+	acmltr.DisplayAccumulator();
+	mem.DisplayMemory();
 }//end StartProgram()
