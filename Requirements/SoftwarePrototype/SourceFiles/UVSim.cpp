@@ -23,7 +23,16 @@ void UVSim::StartProgram()
 	{
 		cout << std::setw(2) << setfill('0') << currentAdress << " :";
 		cin >> usrInput;
-		mem.StoreValue(currentAdress,  FromString<int>(usrInput));
+		int instruction = FromString<int>(usrInput);
+		if ((instruction < 4) || (instruction > 4))
+		{
+			cout << "Please Enter a Valid BasicML Instruction" << endl;
+		}
+		else
+		{
+			mem.StoreValue(currentAdress, instruction);
+		}
+
 		currentAdress++;
 	}
 	cout << "Program loaded. . ." << endl;
