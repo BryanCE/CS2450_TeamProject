@@ -1,5 +1,8 @@
 #include "UVSim.h"
 using namespace std;
+
+const int STOP_CODE = -99999;
+
 UVSim::UVSim()
 {
 	//mem = new Memory();
@@ -21,21 +24,34 @@ void UVSim::StartProgram()
 	//while loop to get and enter each instruction given by the user
 	while (usrInput != "-99999")
 	{
+		//format output of address space in memory to be filled
 		cout << std::setw(2) << setfill('0') << currentAdress << " :";
 		cin >> usrInput;
+
+		//parse the string for integers, negative and positive
+		//functions in UVSim.h
 		int instruction = FromString<int>(usrInput);
-		if ((instruction < 4) || (instruction > 4))
+
+		//verify to some degree that the user's input is valid
+		if ((usrInput.length() < 5) || (usrInput.length() > 5))
 		{
-			cout << "Please Enter a Valid BasicML Instruction" << endl;
+			if (instruction == STOP_CODE)
+			{
+				break;
+			}
+			else
+			{
+				cout << "Please Enter a Valid BasicML Instruction" << endl;
+			}
 		}
 		else
 		{
+			//store the instruction in memory then increment the memory location
 			mem.StoreValue(currentAdress, instruction);
+			currentAdress++;
 		}
-
-		currentAdress++;
-	}
+	}//end while loop gathering user's instructions
 	cout << "Program loaded. . ." << endl;
+	//call the accumulator to run the user's program
 	acmltr.RunProgram();
-
-}
+}//end StartProgram()
