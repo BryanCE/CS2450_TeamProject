@@ -77,6 +77,8 @@ void Accumulator::LoadInstruction()
 	mOperationCode = num / divisor;
 	// Last two numbers
 	mOperand = num % divisor;
+	
+	mInstructionMemoryAddress++;
 
 	return;
 }
