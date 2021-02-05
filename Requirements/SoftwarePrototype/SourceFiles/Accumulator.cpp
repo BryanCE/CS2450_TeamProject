@@ -3,6 +3,12 @@
 Accumulator::Accumulator(Memory* mem)
 	:mMemory(mem)
 {
+	mRegister = 0;
+	mInstructionCounter = 0;
+	mInstructionRegister = 0;
+	mOperationCode = 0;
+	mOperand = 0;
+	mInstructionMemoryAddress = -1;
 }
 
 Accumulator::~Accumulator()
@@ -12,10 +18,10 @@ Accumulator::~Accumulator()
 void Accumulator::RunProgram()
 {
 	cout << "*** Program execution begins ***" << endl;
-	
+
 	while (mOperationCode != 43)
 	{
-		LoadInstruction();
+		LoadInstruction(mInstructionMemoryAddress++);
 		switch (mOperationCode)
 		{
 		case 10:
@@ -31,7 +37,7 @@ void Accumulator::RunProgram()
 			StoreToMemory();
 			break;
 		case 30:
-			Add();
+			Add(mOperand);
 			break;
 		case 31:
 			Subtract();
@@ -51,6 +57,9 @@ void Accumulator::RunProgram()
 		case 42:
 			BranchZero();
 			break;
+		case 43:
+			cout << "Simpletron execution terminated" << endl;
+			break;
 		default:
 			cout << "ERROR: Reached default on switch statement in RunProgram() in Accumulator class." << endl;
 		}
@@ -59,7 +68,7 @@ void Accumulator::RunProgram()
 	return;
 }
 
-void Accumulator::LoadInstruction()
+void Accumulator::LoadInstruction(int addr)
 {
 	// Gets word from memory, store into seperate variable so it doesn't accidentally get changed below
 	int num = mMemory->LoadFromMemory(mInstructionMemoryAddress);
@@ -77,8 +86,6 @@ void Accumulator::LoadInstruction()
 	mOperationCode = num / divisor;
 	// Last two numbers
 	mOperand = num % divisor;
-	
-	mInstructionMemoryAddress++;
 
 	return;
 }
@@ -117,8 +124,12 @@ void Accumulator::StoreToMemory()
 	return;
 }
 
-void Accumulator::Add()
+void Accumulator::Add(int addr)
 {
+	//get actual number from memory
+	int number = mMemory->LoadFromMemory(addr);
+	//add whats in the register to the operands data and keep it in the accumulator register
+	mRegister = mRegister + number;
 }
 
 void Accumulator::Subtract()
@@ -148,4 +159,3 @@ void Accumulator::BranchZero()
 void Accumulator::DisplayAccumulator()
 {
 }
-
