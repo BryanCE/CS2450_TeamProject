@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include <iostream>
@@ -14,11 +15,11 @@ public:
 	int mInstructionRegister;
 	int mOperationCode;
 	int mOperand;
-	int mInstructionMemoryAddress = 0;
-	Memory *mMemory;
+	int mInstructionMemoryAddress;
+	Memory* mMemory;
 
 	// CONSTRUCTOR. Takes a pointer to class memory from UVSim and stores it in the Class Memory member variable.
-	Accumulator(class Memory *mem);
+	Accumulator(class Memory* mem);
 	~Accumulator();
 
 	// Beginning it displays "Progam execution beings". Starts at 00 until the end of the program (When it reaches 43 instruction). 
@@ -27,7 +28,7 @@ public:
 
 	// Calls LoadFromMemory in class Memory using the sent address. 
 	// It stores this value in instructionRegister and fills operationCode and operand variables
-	void LoadInstruction();
+	void LoadInstruction(int addr);
 
 	// Operation Code: 10      Asks for input from the user. Then it calls the Memory class's function of StoreValue(). 
 	// (The memory address will the the operand in the Accumulator's member)
@@ -47,7 +48,7 @@ public:
 
 	// Operation Code: 30	   Calls LoadFromMemory() in class Memory. 
 	// Then takes that value and the value in the register and adds them. This new value OVERWRITES the register variable.
-	void Add();
+	void Add(int addr);
 
 	// Operation Code: 31	   Calls LoadFromMemory() in class Memory. Then takes that value and the 
 	// value in the register and subtracts them. This new value OVERWRITES the register variable.
