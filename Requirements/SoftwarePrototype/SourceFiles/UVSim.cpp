@@ -33,7 +33,7 @@ void UVSim::StartProgram()
 		int instruction = FromString<int>(usrInput);
 
 		//verify to some degree that the user's input is valid
-		if ((usrInput.length() < 5) || (usrInput.length() > 5))
+		if ((usrInput.length() < 4) || (usrInput.length() > 4))
 		{
 			if (instruction == STOP_CODE)
 			{
@@ -54,7 +54,7 @@ void UVSim::StartProgram()
 	cout << "Program loaded. . ." << endl;
 	//call the accumulator to run the user's program
 	acmltr.RunProgram();
-	cout << "Simpletron execution terminated" << endl;
+
 	acmltr.DisplayAccumulator();
 	mem.DisplayMemory();
 }//end StartProgram()
