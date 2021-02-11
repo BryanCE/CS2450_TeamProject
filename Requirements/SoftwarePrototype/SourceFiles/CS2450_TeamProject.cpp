@@ -4,10 +4,11 @@
 #include <iostream>
 #include "UVSim.h"
 using namespace std;
+//Coded By Bryan Edman 10482719
 int main()
 {
     UVSim sim; //interact with the simulator
-    sim.StartProgram();
+    sim.StartProgram(); //run the simulator
 
     system("PAUSE");
     return 0;
