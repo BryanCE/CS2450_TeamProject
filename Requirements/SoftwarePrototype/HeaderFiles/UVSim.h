@@ -5,6 +5,7 @@
 #include "Accumulator.h"
 #include <string>
 #include <sstream>
+//coded By Bryan Edman 10482719
 class UVSim
 {
 public:
