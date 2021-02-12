@@ -1,23 +1,24 @@
 Test Case 1
-  instructions:
-      00: Take input from keyboard, store in mem20
-      01: Take input from keyboard, store in mem21
-      02: Take input from keyboard, store in mem22
-      03: Output mem20
-      04: Put mem20 into accumulator
-      05: Subtract mem21 from accumulator
-      06: Branch to instruction 08 if accumulator is negative
-      07: Branch to 00 (restart)
-      08: pause process
-      09: stop instruction entry
+      instructions:
+          00: 1020    //Take input from keyboard, store in mem20
+          01: 1021    //Take input from keyboard, store in mem21
+          02: 1022    //Take input from keyboard, store in mem22
+          03: 1120    //Output mem20
+          04: 2020    //Put mem20 into accumulator
+          05: 3121    //Subtract mem21 from accumulator
+          06: 4108    //Branch to instruction 08 if accumulator is negative
+          07: 4000    //Branch to 00 (restart)
+          08: 4300    //pause process
+          09: -99999  //stop instruction entry
   
-  I put in 32, stored in mem20
-  I put in 44, stored in mem21
-  I put in 999, stored in mem22
+      I put in 32, stored in mem20
+      I put in 44, stored in mem21
+      I put in 999, stored in mem22
   
-  Correctly outputs what is in mem20
-  Repeatedly says "Reached default on switch statement"
-  Asks for another integer.
+      Correctly outputs what is in mem20
+      Repeatedly says "Reached default on switch statement"
+      Asks for another integer.
+  
   
   
   
