@@ -1,3 +1,4 @@
+//Memory Class code by Julia Hoffmann
 #pragma once
 
 class Memory {
