@@ -1,3 +1,4 @@
+//Subtract function through Display Accumulator was coded by Jonathan Kim
 #include "Accumulator.h"
 
 Accumulator::Accumulator(Memory* mem)
@@ -185,7 +186,7 @@ void Accumulator::DisplayAccumulator()
 	// Displays the register, instructionCounter, instructionRegister, operationCode and operand variables. 
     cout << "\nREGISTERS: " << endl;
     
-    cout << "Accumulator\t";
+    cout << "Accumulator:        \t";
     //if accumulator value is 1 digit
     if (mRegister < 10){
         cout << "000";
@@ -201,14 +202,14 @@ void Accumulator::DisplayAccumulator()
     //calls out accumulator value
     cout << mRegister << endl;
     
-    cout << "InstructionCounter\t";
+    cout << "InstructionCounter: \t";
     //if instructionCounter is 1 digit
     if (mInstructionCounter < 10)
         cout << "0";
     //calling the value of instructionCounter
     cout << mInstructionCounter << endl;
     
-    cout << "InstructionRegister\t";
+    cout << "InstructionRegister:\t";
     //if instructionRegister value is 1 digit
     if (mInstructionRegister < 10){
         cout << "000";
@@ -224,14 +225,14 @@ void Accumulator::DisplayAccumulator()
     //calls out the value of instructionRegister
     cout << mInstructionRegister << endl;
     
-    cout << "OperationCode \t";
+    cout << "OperationCode:      \t";
     //if operationcode is in 1 digit
     if (mOperationCode < 10)
         cout << "0";
     //calls out operationcode
     cout << mOperationCode << endl;
     
-    cout << "Operand \t";
+    cout << "Operand:            \t";
     //if operand value is 1 digit
     if (mOperand < 10)
         cout << "0";
