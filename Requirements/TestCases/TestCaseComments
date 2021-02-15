@@ -25,3 +25,22 @@ Test Case 1
 Test Case 2
   This was a copy/ paste of the example the professor gave us (also called testcase2) to
   see if it worked correctly. The outputs matched up completely.
+
+
+
+
+Test Case 3
+      instuctions:
+            00: 1010          //Take input from keyboard, store in mem10
+            01: 2010          //Put mem10 into accumulator
+            02: 1011          //Take input form keyboard, store in mem11
+            03: 3111          //Subtract mem11 from accumulator
+            04: 4300          //pause process
+            05: -99999        //stop instuction entry
+            
+       I put in 2, stored in mem20
+       I put in 4, stored in mem21
+       At the end of the process, accumulator states it is storing 00-2, which is correct.
+       
+       
+       
