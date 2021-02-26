@@ -1,1 +1,21 @@
+Bryan Edman
+10482719
+Functional requirements First Draft
+
+Functional Requirement ID:	Description of Requirement
+FR1	  System shall read a signed 4-digit instruction (word)
+FR2	  System shall hold in memory up to 100 instructions
+FR3	  System shall allow a full program to be entered before running said program.
+FR4	  System shall distinguish between word instruction and operand (memory location)
+FR5	  System shall write any word from memory to the screen
+FR6	  System shall load a word from memory into accumulator
+FR7	  System shall store a word from accumulator into memory
+FR8	  System shall add a word from accumulator and a word in memory saving result in accumulator
+FR9	  Shall subtract a word in memory from a word in accumulator
+FR10	Shall divide a word in accumulator by a word in memory
+FR11	Shall multiply a word in memory by a word in accumulator
+FR12	System shall branch from operating on an instruction to an instruction in another memory location. 
+FR13	System shall branch to new memory location only if accumulator is negative. 
+FR14	System shall branch to new memory location only if accumulator is equal to zero
+FR15	System shall accept code to halt and safely end computation and return
 
