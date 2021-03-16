@@ -1,0 +1,34 @@
+CS2450_TeamProject_MVC.cpp
+Purpose: The main class. Calls the model, controller, and view classes.
+Arguments: None
+Preconditions: None
+Postcondition: System has run
+
+Model.cpp
+Purpose: Stores the memory and accumulator classes. Also stores the header for the program.
+Arguments: None
+Preconditions: The program needs access to the memory or accumulator classes.
+Postcondition: The functions in the memory or accumulator class finish.
+
+Controller.cpp
+Purpose: Controls/ calls the functions to each class
+Arguments: Model class
+Preconditions: A functions needs to be called in one of the classes
+Postcondition: The function in the class has finished
+
+View.cpp
+Purpose: The interface to the program
+Arguments: Controller class and Model class
+Preconditions: Controller and model classes made
+Postcondition: Program executes, information shown
+
+Memory.cpp
+Purpose: Stores instructions or four-digit words in 99 locations
+Arguments: Address and value (to store)
+Preconditions: Called from model.cpp
+Postcondition: value stored in specific address
+Accumulator.cpp
+Purpose: Reads and runs instructions
+Arguments: an instruction (4-digit value)
+Preconditions: Called from model.cpp
+Postcondition: Instruction was processed and completed 
