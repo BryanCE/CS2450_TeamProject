@@ -27,6 +27,7 @@ Purpose: Stores instructions or four-digit words in 99 locations
 Arguments: Address and value (to store)
 Preconditions: Called from model.cpp
 Postcondition: value stored in specific address
+
 Accumulator.cpp
 Purpose: Reads and runs instructions
 Arguments: an instruction (4-digit value)
