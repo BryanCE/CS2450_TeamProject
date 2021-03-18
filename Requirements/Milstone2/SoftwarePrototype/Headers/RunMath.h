@@ -11,7 +11,7 @@ public:
 	Model* GetModel();
 
 	// Operation Code: 30	   Calls LoadFromMemory() in class Memory. 
-// Then takes that value and the value in the register and adds them. This new value OVERWRITES the register variable.
+	// Then takes that value and the value in the register and adds them. This new value OVERWRITES the register variable.
 	int Add(int addr, int regVal);
 
 	// Operation Code: 31	   Calls LoadFromMemory() in class Memory. Then takes that value and the 
