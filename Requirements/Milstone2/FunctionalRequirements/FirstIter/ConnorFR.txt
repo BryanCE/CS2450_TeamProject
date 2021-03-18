@@ -1,0 +1,17 @@
+
+FR’s
+1.	The program can take instructions from the user
+2.	The program can follow the instructions input by the user
+3.	The client can store values by inputting the value
+4.	The program can output what is stored in a specific memory location
+5.	The program can store a value from memory to the accumulator
+6.	The program can store a value from the accumulator to memory
+7.	The program can add a value from memory to the accumulator
+8.	The program can subtract the value in the accumulator by a value in memory
+9.	The program can multiply a value from memory to the accumulator
+10.	The program can divide the value in the accumulator by a value in memory
+11.	The program can jump to a specific place in memory
+12.	The program can jump to a specific place in memory if the value in the accumulator is negative
+13.	The program can jump to a specific place in memory if the value in the accumulator is zero
+14.	The program can output what is in the accumulator once the instructions are read
+15.	The program can output what is in memory once the instructions are read
