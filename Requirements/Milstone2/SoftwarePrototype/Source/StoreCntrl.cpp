@@ -1,5 +1,5 @@
 #include "StoreCntrl.h"
-
+//Coded by Bryan Edman
 StoreCntrl::StoreCntrl()
 	:Controller(&model)
 {
