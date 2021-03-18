@@ -1,10 +1,7 @@
 #include "RunMath.h"
 #include <stdlib.h>
 #include <iostream>
-//RunMath::RunMath()
-//{
-//	
-//}
+//coded by Bryan Edman
 void RunMath::SetModel(Model* mdl)
 {
 	mMemory = mdl;
@@ -27,7 +24,6 @@ int RunMath::Subtract(int addr, int regVal)
 {
 	//get actual number from memory
 	int number = mMemory->LoadFromMemory(addr);
-	//mRegister -= mMemory->LoadFromMemory(mOperand);
 	return number - regVal;
 }
 
@@ -40,13 +36,11 @@ int RunMath::Divide(int addr, int regVal)
 		std::cout << "Attempt to divide by zero";
 		exit(1);
 	}
-	//mRegister = mRegister / mMemory->LoadFromMemory(mOperand);
 	return regVal/num;
 }
 
 int RunMath::Multiply(int addr, int regVal)
 {
 	int num = mMemory->LoadFromMemory(addr);
-	//mRegister *= mMemory->LoadFromMemory(addr);
 	return num * regVal;
 }
