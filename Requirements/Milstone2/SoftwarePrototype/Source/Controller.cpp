@@ -1,5 +1,5 @@
 #include "Controller.h"
-
+//coded by Bryan Edman
 Controller::Controller(Model* mdl)
 {
     model = mdl;
