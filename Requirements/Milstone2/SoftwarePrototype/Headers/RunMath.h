@@ -1,13 +1,11 @@
 #pragma once
 #include "Model.h"
-//#include "RunOperations.h"
+//coded by Bryan Edman
 class RunMath
 {
 private:
 	Model* mMemory;
 public:
-
-	//RunMath();
 
 	void SetModel(Model* mdl);
 	Model* GetModel();
@@ -28,4 +26,3 @@ public:
 	// Then takes that value and the value in the register and multiplies them. This new value OVERWRITES the register variable.
 	int Multiply(int addr, int regVal);
 };
-
