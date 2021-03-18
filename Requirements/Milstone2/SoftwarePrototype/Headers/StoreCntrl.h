@@ -1,6 +1,7 @@
 #pragma once
 #include "Controller.h"
 #include "Model.h"
+//Coded by Bryan Edman
 class StoreCntrl : public Controller
 {
 public:
@@ -14,4 +15,3 @@ private:
 	Model model;
 
 };
-
