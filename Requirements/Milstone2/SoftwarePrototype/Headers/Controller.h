@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include "Model.h"
+
+//coded by Bryan Edman
 class Controller
 {
 public:
@@ -10,4 +12,3 @@ public:
 private:
 	Model* model;
 };
-
