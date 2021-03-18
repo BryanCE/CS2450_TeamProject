@@ -7,7 +7,7 @@
 #include <sstream>
 #include "StoreCntrl.h"
 #include "RunCntrl.h"
-
+//Coded by Bryan Edman
 class View
 {
 
