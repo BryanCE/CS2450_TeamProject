@@ -1,3 +1,5 @@
+//Documentation done by Connor M.
+
 CS2450_TeamProject_MVC.cpp
 Purpose: The main class. Calls the controller and view classes.
 Arguments: None
