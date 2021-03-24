@@ -1,0 +1,54 @@
+CS2450_TeamProject_MVC.cpp
+Purpose: The main class. Calls the controller and view classes.
+Arguments: None
+Preconditions: None
+Postcondition: System has run
+
+Controller.cpp
+Purpose: Calls the model class
+Arguments: Model class
+Preconditions: A functions needs to be called in one of the classes
+Postcondition: The function in the class has finished
+
+
+Model.cpp
+Purpose: Stores values and retrieves from memory. Also stores the header for the program
+Arguments: None
+Preconditions: The program needs access to the memory
+Postcondition: Value from memory outputted or value stored in memory
+
+StoreCntrl.cpp
+Purpose: Stores the instructions into memory
+Arguments: an instruction (4-digit value)
+Preconditions: Called from ViewClient.cpp
+Postcondition: Instruction was stored 
+
+RunCntrl.cpp
+Purpose: Calls classes based on instructions
+Arguments: 2 ints, the instruction code and the value
+Preconditions: main functions calls it
+Postconditions: instruction read and executed
+
+RunMath.cpp
+Purpose: Executes math instructions
+Arguments: 2 ints, instruction and the value
+Preconditions: RunCntrl.cpp calls a function in the class
+Postconditions: Math instruction executed
+
+RunOpperations.cpp
+Purpose: Fulfils instructions inputted by user
+Arguments: 4-digit value
+Preconditions: Called from StoreCntrl.cpp
+Postcondition: Instruction was processed and completed
+
+View.cpp
+Purpose: The interface to the program
+Arguments: None
+Preconditions: ViewClient calls View
+Postcondition: Program executes, information shown
+
+ViewClient.cpp
+Purpose: Takes inputs from user, and displays the memory and accumulator when program finishes
+Arguments: View class
+Preconditions: View class made, main function calls ViewClient
+Postcondition: Has received inputs from user; accumulator and memory show
