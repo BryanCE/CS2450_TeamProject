@@ -102,6 +102,8 @@ void ViewClient::Run()
 
 		//ask the store controller to load the program in the model
 		v->StrCntl->Run(usrFilestr);
+		//close up the file stream
+		usrFilestr.close();
 	}//end of dealing with a file input
 
 	std::cout << "Program loaded. . ." << endl;
