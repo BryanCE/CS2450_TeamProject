@@ -4,10 +4,9 @@ This program, called UVSim, is a simulation of a machine programming to help com
 After starting the program, you input instructions into the console, and after inputting -99999, the program runs.
 
 User Instructions:
-When starting the simulator you will be given the option to input a file containing the basicML instructions or to input the instructions by hand.
-If you choose to input a file, you will be prompted to enter the file path, then the file will automatically be read and the program executed. 
+When starting the simulator you will be given the instroduction message, followed by the option to input a file containing the basicML instructions or to input the instructions by hand. If you choose to input a file, you will be prompted to enter the file path if the file is located in another directory or the filename and extension if the file is located in the same directory as the program, then the file will automatically be read and the program executed. 
 If you choose to enter the basicML by hand, you will be given a prompt and a memory address number which will be filled with your BasicML instruction.
-After inputting the basicML by hand you will be given the option to save the instructions out to a file. 
+After inputting the basicML by hand you will be given the option to save the instructions out to a new file in the program directory. 
 Enter each BasicML instruction you would like. Each instruction is entered into the simulator memory in consecutive order. 
 These instructions make up your own BasicML program which can be used to add numbers for example. 
 If you choose to have the system operate on the value in the accumulator(such as using one of the arithmetic operations) you may enter an integer with up to 6 digits as long as the result is not more than 6 digits.
