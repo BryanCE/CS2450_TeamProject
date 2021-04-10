@@ -29,19 +29,19 @@ void ViewClient::Run()
 	}
 
 	//ask if they want to load from a file. if anything but a y/n is entered it will continue to loop
-	char fileYN;
+	char loadFileYN;
 	do
 	{
 		cout << "Would you like to load a program from a file?\ty/n" << endl;
-		cin >> fileYN;
-	} while (!std::cin.fail() && fileYN != 'y' && fileYN != 'n');
+		cin >> loadFileYN;
+	} while (!std::cin.fail() && loadFileYN != 'y' && loadFileYN != 'n');
 
 	//The v is the facade object that the viewclient works with to get the controllers to do what it wants
 	//whether from a file or entering 1 by 1 set the storecontroller
 	v->StrCntl->SetModel(v->RnCntrl->GetModel());
 
 	//if no program needs to be loaded from a file we do what we already have.
-	if (fileYN == 'n')
+	if (loadFileYN == 'n')
 	{
 		//while loop to get and enter each instruction given by the user
 		while (usrInput != STOPCODE)
@@ -73,8 +73,12 @@ void ViewClient::Run()
 				currentAdress++;
 			}
 		}//end while loop gathering user's instructions
+
+		//check if user wants to save to a file or not. 
+		SaveToFile();
+
 	}//end if checking for no file load
-	else if (fileYN == 'y')    //if we do want to load a program from a file
+	else if (loadFileYN == 'y')    //if we do want to load a program from a file
 	{
 		//input file stream object
 		ifstream usrFilestr;
@@ -98,15 +102,15 @@ void ViewClient::Run()
 
 			}
 		} while (!usrFilestr.is_open());
-		// file exists and is open for reading
 
+		// file exists and is open for reading
 		//ask the store controller to load the program in the model
 		v->StrCntl->Run(usrFilestr);
-		//close up the file stream
+		//close up the file streams
 		usrFilestr.close();
 	}//end of dealing with a file input
 
-	std::cout << "Program loaded. . ." << endl;
+	std::cout << "Program loaded. . .\n" << endl;
 
 	//use facade to switch from the storeController to the RunController
 	v->RnCntrl->SetModel(v->StrCntl->GetModel());
@@ -120,65 +124,6 @@ void ViewClient::Run()
 	DisplayMemory();
 }
 
-//void ViewClient::DisplayAccumulator()
-//{
-//	// Displays the register, instructionCounter, instructionRegister, operationCode and operand variables. 
-//cout << "\nREGISTERS: " << endl;
-//
-//cout << "Accumulator\t";
-////if accumulator value is 1 digit
-////using facade to access controllers and ask for needed info
-//if (v->RnCntrl->RO->mRegister < 10) {
-//	cout << "000";
-//}
-////if accumulator value is 2 digits
-//else if (v->RnCntrl->RO->mRegister < 100 && v->RnCntrl->RO->mRegister > 9) {
-//	cout << "00";
-//}
-////if accumulator value is 3 digits
-//else if (v->RnCntrl->RO->mRegister <= 999 && v->RnCntrl->RO->mRegister > 99) {
-//	cout << "0";
-//}
-////calls out accumulator value
-//cout << v->RnCntrl->RO->mRegister << endl;
-//
-//cout << "InstructionCounter\t";
-////if instructionCounter is 1 digit
-//if (v->RnCntrl->RO->mInstructionCounter < 10)
-//	cout << "0";
-////calling the value of instructionCounter
-//cout << v->RnCntrl->RO->mInstructionCounter << endl;
-//
-//cout << "InstructionRegister\t";
-////if instructionRegister value is 1 digit
-//if (v->RnCntrl->RO->mInstructionRegister < 10) {
-//	cout << "000";
-//}
-////if instructionRegister value is 2 digits
-//else if (v->RnCntrl->RO->mInstructionRegister < 100 && v->RnCntrl->RO->mInstructionRegister > 9) {
-//	cout << "00";
-//}
-////if instructionRegister value is 3 digits
-//else if (v->RnCntrl->RO->mInstructionRegister <= 999 && v->RnCntrl->RO->mInstructionRegister > 99) {
-//	cout << "0";
-//}
-////calls out the value of instructionRegister
-//cout << v->RnCntrl->RO->mInstructionRegister << endl;
-//
-//cout << "OperationCode \t";
-////if operationcode is in 1 digit
-//if (v->RnCntrl->RO->mOperationCode < 10)
-//	cout << "0";
-////calls out operationcode
-//cout << v->RnCntrl->RO->mOperationCode << endl;
-//
-//cout << "Operand \t";
-////if operand value is 1 digit
-//if (v->RnCntrl->RO->mOperand < 10)
-//	cout << "0";
-////calls out operand value
-//cout << v->RnCntrl->RO->mOperand << endl;
-//}
 
 void ViewClient::DisplayMemory()
 {
@@ -202,4 +147,35 @@ for (int i = 0; i < 100; i++) {
 	}
 }
 cout << '\n';
+}
+
+void ViewClient::SaveToFile()
+{
+	char saveFileYN;
+	std::string usrInput;
+	do
+	{
+		cout << "Would you like to save the program you've written to a file?\ty/n" << endl;
+		cin >> saveFileYN;
+	} while (!std::cin.fail() && saveFileYN != 'y' && saveFileYN != 'n');
+	if (saveFileYN == 'y')
+	{
+		//output file stream
+		ofstream saveFilestr;
+		cout << "What is the name of the file you would like to save to?" << endl;
+		cin >> usrInput;
+		if (!std::cin.fail())
+		{
+			bool success = v->StrCntl->SaveProgToFile(saveFilestr, usrInput);
+			if (success)
+			{
+				cout << "Program saved successfully. . . " << endl;
+			}
+			else
+			{
+				cout << "Sorry something went wrong while saving your program. . . " << endl;
+			}
+		}
+		saveFilestr.close();
+	}
 }
