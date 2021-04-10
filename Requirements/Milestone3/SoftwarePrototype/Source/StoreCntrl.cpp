@@ -4,6 +4,7 @@ StoreCntrl::StoreCntrl()
 	:Controller(&model)
 {
 	instruction = 0;
+	instrctnCount = 0;
 	//model = *this->GetModel();
 }
 
@@ -24,9 +25,27 @@ void StoreCntrl::Run(std::ifstream &fileStream)
 	}
 }
 
+bool StoreCntrl::SaveProgToFile(std::ofstream& filestream, std::string _fileName)
+{
+	bool saveSuccess = false;
+	filestream.open(_fileName);
+	if (filestream)
+	{
+		for (int i = 0; i < instrctnCount; i++)
+		{
+			filestream << model.LoadFromMemory(i) << std::endl;
+		}
+		saveSuccess = true;
+	}
+	return saveSuccess;
+}
+
+
+
 void StoreCntrl::Store(int addr, int instrcn)
 {
 	model.StoreValue(addr, instrcn);
+	instrctnCount++;
 }
 
 void StoreCntrl::SetModel(Model* mdl)
