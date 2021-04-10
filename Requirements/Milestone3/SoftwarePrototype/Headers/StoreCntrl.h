@@ -11,6 +11,7 @@ public:
 	StoreCntrl();
 	void Run(int addr, int instrcn);
 	void Run(std::ifstream &fileStream);
+	bool SaveProgToFile(std::ofstream& filestream, std::string _fileName);
 	void Store(int addr, int instrcn);
 	void SetModel(Model* mdl);
 	Model* GetModel();
@@ -36,7 +37,7 @@ public:
 	}
 
 private:
-	int instruction;
+	int instruction, instrctnCount;
 	Model model;
 };
 
