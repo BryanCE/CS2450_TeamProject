@@ -1,5 +1,6 @@
 #pragma once
 #include "View.h"
+//programmed by Bryam Edman
 class ViewClient
 {
 
@@ -14,7 +15,7 @@ public:
 	//displays all values stored in memory or 0 if empty in the form of a table
 	void DisplayMemory();
 
-	//Some generic functions to parse an integer from the string
+//Some generic functions to parse an integer from the string
 //credit to stack overflow help
 //does handle negative numbers
 	template<typename T>
@@ -36,6 +37,8 @@ public:
 
 
 protected:
+	void SaveToFile();
+
 	int currentAdress = 0;
 	const int STOP_CODE = -99999;
 	View* v;
