@@ -10,6 +10,7 @@ public:
 	int mOperand;
 	int mInstructionMemoryAddress;
 	Model* mMemory;
+	int mOverFlowSixDigit;
 
 
 	RunOperations();
