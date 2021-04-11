@@ -54,19 +54,19 @@ void RunCntrl::Run()
 			mInstructionMemoryAddress++;
 			break;
 		case 30:
-			RO->mRegister = math->Add(RO->mOperand, RO->mRegister);
+			RO->mRegister = math->Add(RO->mOperand, RO->mRegister, RO->mOverFlowSixDigit);
 			mInstructionMemoryAddress++;
 			break;
 		case 31:
-			RO->mRegister = math->Subtract(RO->mOperand, RO->mRegister);
+			RO->mRegister = math->Subtract(RO->mOperand, RO->mRegister, RO->mOverFlowSixDigit);
 			mInstructionMemoryAddress++;
 			break;
 		case 32:
-			RO->mRegister = math->Divide(RO->mOperand, RO->mRegister);
+			RO->mRegister = math->Divide(RO->mOperand, RO->mRegister, RO->mOverFlowSixDigit);
 			mInstructionMemoryAddress++;
 			break;
 		case 33:
-			RO->mRegister = math->Multiply(RO->mOperand, RO->mRegister);
+			RO->mRegister = math->Multiply(RO->mOperand, RO->mRegister, RO->mOverFlowSixDigit);
 			mInstructionMemoryAddress++;
 			break;
 		case 40:
