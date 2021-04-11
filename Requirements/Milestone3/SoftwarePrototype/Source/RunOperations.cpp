@@ -1,5 +1,6 @@
 #include "RunOperations.h"
 #include <iostream>
+#include <string>
 
 
 using namespace std;
@@ -48,10 +49,41 @@ int RunOperations::LoadInstruction(int addr)
 void RunOperations::ReadToMemory()
 {
 	int input;
-	cout << "Enter an integer: ";
-	cin >> input;
-	cout << endl;
-	mMemory->StoreValue(mOperand, input);
+	int num = 0;
+	do
+	{
+		cout << "Enter an integer: ";
+		cin >> input;
+		cout << endl;
+		num = input;
+		if (num > 999999)
+		{
+			cout << "\nPlease enter a number of six digits or less." << endl;
+		}
+
+	} while (num > 999999);
+	
+
+	// Program checks if the number needs to be split for anything over 4 digits.
+
+	if (num > 9999)
+	{
+		// Splits number into two parts
+		int secondHalf = num % 1000;
+		int firstHalf = num / 1000;
+
+		// Save first half into the intended memory slot.
+		mMemory->StoreValue(mOperand, firstHalf);
+		// Save the second half in the memory slot next to it.
+		mMemory->StoreValue(mOperand + 1, secondHalf);
+		// Record a true into the array so the program knows it needs both half.
+		mMemory->isSixDigits[mOperand] = true;
+	}
+	else
+	{
+		mMemory->StoreValue(mOperand, input);
+	}
+
 
 	return;
 }
@@ -67,7 +99,17 @@ void RunOperations::WriteToScreen()
 
 void RunOperations::LoadFromMemoryToReg()
 {
-	mRegister = mMemory->LoadFromMemory(mOperand);
+	// Need to know if the regester is holding the first half of a number more than 4 digits. 
+	if (mMemory->isSixDigits[mOperand])
+	{
+		mOverFlowSixDigit = mMemory->LoadFromMemory(mOperand+1);
+		mRegister = mMemory->LoadFromMemory(mOperand);
+	}
+	else
+	{
+		mOverFlowSixDigit = 0;
+		mRegister = mMemory->LoadFromMemory(mOperand);
+	}
 
 	return;
 }
@@ -75,6 +117,8 @@ void RunOperations::LoadFromMemoryToReg()
 void RunOperations::StoreToMemory()
 {
 	mMemory->StoreValue(mOperand, mRegister);
+	if (mOverFlowSixDigit != 0)
+		mMemory->StoreValue(mOperand + 1, mOverFlowSixDigit);
 
 	return;
 }
@@ -140,6 +184,9 @@ void RunOperations::DisplayAccumulator()
 	}
 	//calls out accumulator value
 	cout << mRegister << endl;
+
+	cout << "Overflow\t";
+	cout << mOverFlowSixDigit << endl;
 
 	cout << "InstructionCounter\t";
 	//if instructionCounter is 1 digit
