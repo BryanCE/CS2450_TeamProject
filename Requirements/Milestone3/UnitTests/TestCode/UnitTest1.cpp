@@ -4,9 +4,6 @@
 #include "RunMath.h"
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-//coded by Connor Morley
-
-//Classes tested were Model and RunMath
 namespace UnitTest1
 {		
 	TEST_CLASS(ModelTest)
@@ -22,8 +19,6 @@ namespace UnitTest1
 		}
 
 	};
-  
-  
 	TEST_CLASS(RunMathTest)
 	{
 	public:
@@ -46,6 +41,22 @@ namespace UnitTest1
 			Assert::AreEqual(100, math->Add(1, 50, memory[4]));
 		}
 
+		TEST_METHOD(TestAddNeg)
+		{
+
+			// TODO: Your test code here
+			model->StoreValue(0, -2);
+			model->StoreValue(1, -50);
+			model->StoreValue(2, -25);
+			math->SetModel(model);
+			int memory[100] = { 0 };
+			memory[0] = -2;
+			memory[1] = -50;
+			memory[2] = -25;
+
+			Assert::AreEqual(-100, math->Add(1, -50, memory[4]));
+		}
+
 		TEST_METHOD(TestSubtract)
 		{
 
@@ -63,6 +74,24 @@ namespace UnitTest1
 
 		}
 
+		TEST_METHOD(TestSubtractNeg)
+		{
+
+			// TODO: Your test code here
+			model->StoreValue(0, 2);
+			model->StoreValue(1, 50);
+			model->StoreValue(2, 25);
+			math->SetModel(model);
+			int memory[100] = { 0 };
+			memory[0] = 2;
+			memory[1] = 50;
+			memory[2] = 25;
+
+			Assert::AreEqual(-9550, math->Subtract(1, 9600, memory[4]));
+
+		}
+
+
 		TEST_METHOD(TestMultiply)
 		{
 
@@ -79,6 +108,22 @@ namespace UnitTest1
 			Assert::AreEqual(100, math->Multiply(0, 50, memory[4]));
 		}
 
+		TEST_METHOD(TestMultiplyBig)
+		{
+
+			// TODO: Your test code here
+			model->StoreValue(0, 2);
+			model->StoreValue(1, 50);
+			model->StoreValue(2, 25);
+			math->SetModel(model);
+			int memory[100] = { 0 };
+			memory[0] = 2;
+			memory[1] = 50;
+			memory[2] = 25;
+
+			Assert::AreEqual(250000, (math->Multiply(1, 5000, memory[4])*1000 + memory[4]));
+		}
+
 		TEST_METHOD(TestDivide)
 		{
 
@@ -93,6 +138,22 @@ namespace UnitTest1
 			memory[2] = 25;
 
 			Assert::AreEqual(2, math->Divide(2, 50, memory[4]));
+		}
+
+		TEST_METHOD(TestDivideNeg)
+		{
+
+			// TODO: Your test code here
+			model->StoreValue(0, 2);
+			model->StoreValue(1, 50);
+			model->StoreValue(2, 25);
+			math->SetModel(model);
+			int memory[100] = { 0 };
+			memory[0] = 2;
+			memory[1] = 50;
+			memory[2] = 25;
+
+			Assert::AreEqual(-2, math->Divide(2, -50, memory[4]));
 		}
 	};
 }
